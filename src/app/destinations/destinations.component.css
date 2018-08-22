@@ -1,0 +1,37 @@
+.select-wrapper{
+    width:100%;
+    height:auto;
+    background-color: gray;
+    padding:30px;
+    margin:0 auto;
+}
+.select-box{
+    width:170px;
+    height:40px;
+    padding:8px 15px;
+    background-color: black;
+    color:white;
+    border-right:40px solid rgb(53, 52, 52);
+    position:relative;
+    cursor:pointer;
+    display:inline-block;
+}
+.select-box::after{
+    content:'';
+    border:  2px solid rgb(53, 52, 52);
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-top :12px solid yellow;
+    position:absolute;
+    right:-30px;
+    top:12px;
+
+}
+.radio-box{
+   
+    padding:8px 15px;
+    display:inline-block;
+}
+.form-grp{
+    display:inline-block;
+}

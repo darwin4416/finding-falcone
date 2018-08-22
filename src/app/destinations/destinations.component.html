@@ -1,0 +1,26 @@
+<div class="select-wrapper">
+       
+    <div class="select-box" (click)="onPlanetSelect(1)">Donlon</div>
+    <div class="select-box" (click)="onPlanetSelect(2)">Donlon</div>
+    <div class="radio-box" *ngIf="showPlanet1">
+        <div *ngFor ="let vehicle of vehicles">
+            <div class="form-grp">
+                <input type="radio">
+                <label for="aircraft">{{vehicle.name}} {{vehicle.total_no}}</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="radio-box" *ngIf="showPlanet2">
+        <div *ngFor ="let vehicle of vehicles">
+            <div class="form-grp">
+                <input type="radio">
+                <label for="aircraft">{{vehicle.name}} {{vehicle.total_no}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Panel Heading</div>
+    <div class="panel-body">Panel Content</div>
+</div>

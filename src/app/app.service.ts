@@ -8,7 +8,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class AppService {
 
-  planets: any[] = []
+
   constructor(private http: Http) { }
 
   errorHandler(error: Response) {
@@ -18,6 +18,7 @@ export class AppService {
 
   //********************** Data from Api  ********************************************* */
   private planetsUrl = "https://findfalcone.herokuapp.com/planets";
+  private vehiclesUrl = "https://findfalcone.herokuapp.com/vehicles";
   getPlanets(){     
     let headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http.get(this.planetsUrl,{ headers: headers })
@@ -25,6 +26,13 @@ export class AppService {
       .catch(this.errorHandler);
   }
 
+  
+  getVehicles(){     
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.get(this.vehiclesUrl,{ headers: headers })
+      .map(res => res.json())
+      .catch(this.errorHandler);
+  }
 
 }
 

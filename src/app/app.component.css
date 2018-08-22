@@ -1,0 +1,11 @@
+#app{
+    background-color: rgb(255, 254, 245);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+}
+.head{
+    width:100%;
+    padding:20px 30px;
+    background-color: black;
+    color:white;
+    border:1px solid black;
+}

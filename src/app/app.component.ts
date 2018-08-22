@@ -8,18 +8,19 @@ import { AppService } from './app.service';
 })
 export class AppComponent implements OnInit {
   planets:any[];
-  planetCopy:any[] = [];
+  vehicles:any[];
   constructor(private getplanetService: AppService) { }
   
    ngOnInit(){
-   this.getplanetService.getPlanets().subscribe(data => {this.planets = data
+    this.getplanetService.getPlanets().subscribe(data =>{
+       this.planets = data;
+    });
+    this.getplanetService.getVehicles().subscribe(data =>{
+      this.vehicles = data
+    })
      
-  });
   }
   
-  planetsCopy(){
-     this.planetCopy = this.planets.slice();
-     return  this.planetCopy;
-  }
+ 
 
 }
