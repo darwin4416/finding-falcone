@@ -1,18 +1,18 @@
 <div class="select-wrapper">
-       
+
     <div class="select-box" (click)="onPlanetSelect(1)">Donlon</div>
     <div class="select-box" (click)="onPlanetSelect(2)">Donlon</div>
     <div class="radio-box" *ngIf="showPlanet1">
-        <div *ngFor ="let vehicle of vehicles">
+        <div *ngFor="let vehicle of vehicles">
             <div class="form-grp">
                 <input type="radio">
                 <label for="aircraft">{{vehicle.name}} {{vehicle.total_no}}</label>
             </div>
         </div>
     </div>
-    
+
     <div class="radio-box" *ngIf="showPlanet2">
-        <div *ngFor ="let vehicle of vehicles">
+        <div *ngFor="let vehicle of vehicles">
             <div class="form-grp">
                 <input type="radio">
                 <label for="aircraft">{{vehicle.name}} {{vehicle.total_no}}</label>
@@ -20,7 +20,56 @@
         </div>
     </div>
 </div>
+
 <div class="panel panel-default">
-    <div class="panel-heading">Panel Heading</div>
-    <div class="panel-body">Panel Content</div>
+    <div class="panel-heading">
+        Select Planet
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-3">
+                    <div class="img-wrapper">
+                            <img src="" alt="">
+                     </div>
+                <select name="destination"  class="select-planet" (change) ="onPlanetSelect($event)">
+                    <option selected disabled >Select Planet</option>
+                    <option value={{i}} *ngFor="let planet of planetCopy;let i = index" disabled ="isDisabled">
+                        {{planet.name}}
+                    </option>
+                   
+                </select>
+            </div>
+            <div class="col-sm-3">
+                     <div class="img-wrapper">
+                            <img src="" alt="">
+                     </div>
+                  
+                    <select name="destination"  class="select-planet">
+                        <option selected disabled>Select Planet</option>
+                        <option *ngFor ="let planet of planetCopy">{{planet.name}}</option>
+                       
+                    </select>
+            </div>
+            <div class="col-sm-3">
+                    <div class="img-wrapper">
+                            <img src="" alt="">
+                     </div>
+                    <select name="destination"  class="select-planet">
+                        <option selected disabled>Select Planet</option>
+                        <option *ngFor ="let planet of planetCopy">{{planet.name}}</option>
+                       
+                    </select>
+            </div>
+            <div class="col-sm-3">
+                    <div class="img-wrapper">
+                            <img src="" alt="">
+                     </div>
+                    <select name="destination" class="select-planet">
+                        <option selected disabled>Select Planet</option>
+                        <option *ngFor ="let planet of planetCopy">{{planet.name}}</option>
+                       
+                    </select>
+            </div>
+        </div>
+    </div>
 </div>

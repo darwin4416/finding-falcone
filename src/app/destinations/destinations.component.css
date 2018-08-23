@@ -1,4 +1,4 @@
-.select-wrapper{
+/* .select-wrapper{
     width:100%;
     height:auto;
     background-color: gray;
@@ -34,4 +34,14 @@
 }
 .form-grp{
     display:inline-block;
+} */
+.img-wrapper{
+    width:60%;
+    height:100px;
+    background: rgb(255, 254, 246);
+}
+.select-planet{
+    width:60%;
+    padding:5px 15px;
+    font-size:1.1em;
 }

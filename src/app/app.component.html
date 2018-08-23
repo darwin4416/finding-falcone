@@ -1,8 +1,15 @@
 <div id="app">
         <div class="container-fluid head">
                 <h3>Finding Falcone</h3>
-            </div>
-            <data-list [planets]="planets" [vehicles] = "vehicles"></data-list>
+        </div>
+        <div class="container-fluid">
+                <div class="row">
+                        <div class="col-sm-4">
+                                <data-list [planets]="planets" [vehicles]="vehicles"></data-list>
+                        </div>
+                        <div class="col-sm-8">
+                                <destinations [planets]="planets" [vehicles]="vehicles"></destinations>
+                        </div>
+                </div>
+        </div>
 </div>
-
-<!-- <destinations [planets]="planets" [vehicles] ="vehicles"></destinations> -->
