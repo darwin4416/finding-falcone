@@ -1,4 +1,4 @@
-<div class="select-wrapper">
+<!-- <div class="select-wrapper">
 
     <div class="select-box" (click)="onPlanetSelect(1)">Donlon</div>
     <div class="select-box" (click)="onPlanetSelect(2)">Donlon</div>
@@ -19,56 +19,51 @@
             </div>
         </div>
     </div>
-</div>
-
+</div> -->
 <div class="panel panel-default">
     <div class="panel-heading">
         Select Planet
     </div>
     <div class="panel-body">
+        {{planetCopy | json}}
         <div class="row">
             <div class="col-sm-3">
-                    <div class="img-wrapper">
-                            <img src="" alt="">
-                     </div>
-                <select name="destination"  class="select-planet" (change) ="onPlanetSelect($event)">
-                    <option selected disabled >Select Planet</option>
-                    <option value={{i}} *ngFor="let planet of planetCopy;let i = index" disabled ="isDisabled">
+                <div class="img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <select name="destination1" class="select-planet" (change)="onDestinationSelect($event,0)">
+                    <option selected disabled>Select Planet</option>
+                    <option value={{i}} *ngFor="let planet of planets;let i = index" [disabled]="planet.isSelected">
                         {{planet.name}}
                     </option>
-                   
                 </select>
             </div>
             <div class="col-sm-3">
-                     <div class="img-wrapper">
-                            <img src="" alt="">
-                     </div>
-                  
-                    <select name="destination"  class="select-planet">
-                        <option selected disabled>Select Planet</option>
-                        <option *ngFor ="let planet of planetCopy">{{planet.name}}</option>
-                       
-                    </select>
+                <div class="img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <select name="destination2" class="select-planet"  (change)="onDestinationSelect($event,1)">
+                    <option selected disabled>Select Planet</option>
+                    <option value={{i}} *ngFor="let planet of planets;let i = index" [disabled]="planet.isSelected">{{planet.name}}</option>
+                </select>
             </div>
             <div class="col-sm-3">
-                    <div class="img-wrapper">
-                            <img src="" alt="">
-                     </div>
-                    <select name="destination"  class="select-planet">
-                        <option selected disabled>Select Planet</option>
-                        <option *ngFor ="let planet of planetCopy">{{planet.name}}</option>
-                       
-                    </select>
+                <div class="img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <select name="destination" class="select-planet"  (change)="onDestinationSelect($event,2)">
+                    <option selected disabled>Select Planet</option>
+                    <option value={{i}} *ngFor="let planet of planets;let i = index" [disabled]="planet.isSelected">{{planet.name}}</option>
+                </select>
             </div>
             <div class="col-sm-3">
-                    <div class="img-wrapper">
-                            <img src="" alt="">
-                     </div>
-                    <select name="destination" class="select-planet">
-                        <option selected disabled>Select Planet</option>
-                        <option *ngFor ="let planet of planetCopy">{{planet.name}}</option>
-                       
-                    </select>
+                <div class="img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <select name="destination" class="select-planet"  (change)="onDestinationSelect($event,3)">
+                    <option selected disabled>Select Planet</option>
+                    <option value={{i}} *ngFor="let planet of planets;let i = index" [disabled]="planet.isSelected">{{planet.name}}</option>
+                </select>
             </div>
         </div>
     </div>
