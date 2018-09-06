@@ -6,8 +6,9 @@ import { Component, OnInit, Input, SimpleChange, SimpleChanges, OnChanges } from
     styleUrls: ['./destinations.component.css']
 })
 export class DestinationsComponent implements OnInit, OnChanges {
-
-
+    selectedInFirst;
+    selectedInSecond;
+    selectedInThird;
     @Input() planets;
     @Input() vehicles;
     constructor() { }
@@ -18,7 +19,7 @@ export class DestinationsComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes.planets) {
-         
+
         }
     }
     // onPlanetSelect(planet) {
@@ -30,80 +31,59 @@ export class DestinationsComponent implements OnInit, OnChanges {
     //     }
 
     // }
-    onDestinationSelect(e,num) {
+    onDestinationSelect(e, num) {
         let index = e.target.value;
-        
-        // if(index== 0){
-        //    if(this.planets[0].isSelected == false){
-        //     this.planets[0].isSelected = !this.planets[0].isSelected;
-        //    }
-        //    else{
-        //     this.planets.forEach(el => {
-        //         el.isSelected = false;
-        //     });
-        //    }  
-        // }
-        // if(index== 1){
-        //     if(this.planets[1].isSelected == false){
-        //         this.planets[1].isSelected = !this.planets[1].isSelected;
-        //        }
-        //        else{
-        //         this.planets.forEach(el => {
-        //             el.isSelected = false;
-        //         });
-        //        } 
-        //  }
-        //  if(index== 2){
-        //     if(this.planets[2].isSelected == false){
-        //         this.planets[2].isSelected = !this.planets[2].isSelected;
-        //        }
-        //        else{
-        //         this.planets.forEach(el => {
-        //             el.isSelected = false;
-        //         });
-        //        } 
-        //  }
-        //  if(index== 3){
-        //     if(this.planets[3].isSelected == false){
-        //         this.planets[3].isSelected = !this.planets[3].isSelected;
-        //        }
-        //        else{
-        //         this.planets.forEach(el => {
-        //             el.isSelected = false;
-        //         });
-        //        } 
-        //  }
-        //  if(index==4){
-        //     if(this.planets[4].isSelected == false){
-        //         this.planets[4].isSelected = !this.planets[4].isSelected;
-        //        }
-        //        else{
-        //         this.planets.forEach(el => {
-        //             el.isSelected = false;
-        //         });
-        //        } 
-        //  }
-        //  if(index== 5){
-        //     if(this.planets[0].isSelected == false){
-        //         this.planets[0].isSelected = !this.planets[0].isSelected;
-        //        }
-        //        else{
-        //         this.planets.forEach(el => {
-        //             el.isSelected = false;
-        //         });
-        //        } 
-        //  }
+        if (num == 0) {
+            for (let i = 0; i < this.planets.length; i++) {
+                if (this.planets[i].isSelected == true) {
+                    this.planets[i].isSelected = false;
+                }
+                else {
+                    this.planets[index].isSelected = true;
+                    this.selectedInFirst = index;
+                }
+            }
+        }
+        if (num == 1) {
+
+            for (let i = 0; i < this.planets.length; i++) {
+                if (i != this.selectedInFirst) {
+                    if (this.planets[i].isSelected == true) {
+                        this.planets[i].isSelected = false;
+                    }
+                    else {
+                        this.planets[index].isSelected = true;
+                        this.selectedInSecond = index
+                    }
+                }
+            }
+        }
+        if (num == 2) {
+            for (let i = 0; i < this.planets.length; i++) {
+                if (i != this.selectedInFirst && i != this.selectedInSecond) {
+                    if (this.planets[i].isSelected == true) {
+                        this.planets[i].isSelected = false;
+                    }
+                    else {
+                        this.planets[index].isSelected = true;
+                        this.selectedInThird = index
+                    }
+                }
+            }
+        }
+        if (num == 3) {
+            for (let i = 0; i < this.planets.length; i++) {
+                if (i != this.selectedInFirst && i != this.selectedInSecond && i != this.selectedInThird) {
+                if (this.planets[i].isSelected == true) {
+                    this.planets[i].isSelected = false;
+                }
+                else {
+                    this.planets[index].isSelected = true;
+
+                }
+            }
+            }
+        }
     }
-    // onDestinationSelect2(e){
-    //     let index = e.target.value;
-    //     // this.planets[this.firstSelection].isSelected = true;
-    // }
-    // onDestinationSelect3(e){
-    //     let index = e.target.value;
-    //     // this.planets[index].isSelected = true;
-    // }
-    // onDestinationSelect4(e){
-    //     let index = e.target.value;
-    //     // this.planets[index].isSelected = true;
-    // }
+ 
 }
