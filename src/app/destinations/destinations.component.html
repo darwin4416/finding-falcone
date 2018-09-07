@@ -33,7 +33,7 @@
                      </div>
                 <select name="destination"  class="select-planet" (change) ="onPlanetSelect($event)">
                     <option selected disabled >Select Planet</option>
-                    <option value={{i}} *ngFor="let planet of planetCopy;let i = index" disabled ="isDisabled">
+                    <option value={{i}} *ngFor="let planet of planets;let i = index">
                         {{planet.name}}
                     </option>
                    
@@ -43,11 +43,9 @@
                      <div class="img-wrapper">
                             <img src="" alt="">
                      </div>
-                  
                     <select name="destination"  class="select-planet">
                         <option selected disabled>Select Planet</option>
-                        <option *ngFor ="let planet of planetCopy">{{planet.name}}</option>
-                       
+                        <option *ngFor ="let planetcopy of planetCopies">{{planetcopy.name}}</option>
                     </select>
             </div>
             <div class="col-sm-3">
