@@ -1,4 +1,4 @@
-<div class="select-wrapper">
+<!-- <div class="select-wrapper">
 
     <div class="select-box" (click)="onPlanetSelect(1)">Donlon</div>
     <div class="select-box" (click)="onPlanetSelect(2)">Donlon</div>
@@ -19,55 +19,148 @@
             </div>
         </div>
     </div>
-</div>
-
+</div> -->
 <div class="panel panel-default">
     <div class="panel-heading">
         Select Planet
     </div>
     <div class="panel-body">
+        {{planetCopy | json}}
         <div class="row">
             <div class="col-sm-3">
-                    <div class="img-wrapper">
-                            <img src="" alt="">
-                     </div>
-                <select name="destination"  class="select-planet" (change) ="onPlanetSelect($event)">
-                    <option selected disabled >Select Planet</option>
-                    <option value={{i}} *ngFor="let planet of planets;let i = index">
+                <div class="img-wrapper">
+                    <img *ngIf="firstPlanetSelected" [src]="'assets/images/'+firstPlanetSelected+'.jpg'" alt="planet1"
+                        class="planet_image">
+                </div>
+                <select name="destination1" class="select-planet" (change)="onDestinationSelect($event,1)">
+                    <option selected disabled>Select Planet</option>
+                    <option value={{planet.name}} *ngFor="let planet of planets;let i = index" [disabled]="planet.isSelected">
                         {{planet.name}}
                     </option>
-                   
                 </select>
             </div>
             <div class="col-sm-3">
-                     <div class="img-wrapper">
-                            <img src="" alt="">
-                     </div>
-                    <select name="destination"  class="select-planet">
-                        <option selected disabled>Select Planet</option>
-                        <option *ngFor ="let planetcopy of planetCopies">{{planetcopy.name}}</option>
-                    </select>
+                <div class="img-wrapper">
+                    <img *ngIf="secondPlanetSelected" [src]="'assets/images/'+secondPlanetSelected+'.jpg'" alt="" class="planet_image">
+                </div>
+                <select name="destination1" class="select-planet" (change)="onDestinationSelect($event,2)">
+                    <option selected disabled>Select Planet</option>
+                    <option value={{planet.name}} *ngFor="let planet of planets;let i = index" [disabled]="planet.isSelected">
+                        {{planet.name}}
+                    </option>
+                </select>
             </div>
             <div class="col-sm-3">
-                    <div class="img-wrapper">
-                            <img src="" alt="">
-                     </div>
-                    <select name="destination"  class="select-planet">
-                        <option selected disabled>Select Planet</option>
-                        <option *ngFor ="let planet of planetCopy">{{planet.name}}</option>
-                       
-                    </select>
+                <div class="img-wrapper">
+                    <img *ngIf="thirdPlanetSelected" [src]="'assets/images/'+thirdPlanetSelected+'.jpg'" alt="" class="planet_image">
+                </div>
+                <select name="destination1" class="select-planet" (change)="onDestinationSelect($event,3)">
+                    <option selected disabled>Select Planet</option>
+                    <option value={{planet.name}} *ngFor="let planet of planets;let i = index" [disabled]="planet.isSelected">
+                        {{planet.name}}
+                    </option>
+                </select>
             </div>
             <div class="col-sm-3">
-                    <div class="img-wrapper">
-                            <img src="" alt="">
-                     </div>
-                    <select name="destination" class="select-planet">
-                        <option selected disabled>Select Planet</option>
-                        <option *ngFor ="let planet of planetCopy">{{planet.name}}</option>
-                       
-                    </select>
+                <div class="img-wrapper">
+                    <img *ngIf="fourthPlanetSelected" [src]="'assets/images/'+fourthPlanetSelected+'.jpg'" alt="" class="planet_image">
+                </div>
+                <select name="destination1" class="select-planet" (change)="onDestinationSelect($event,4)">
+                    <option selected disabled>Select Planet</option>
+                    <option value={{planet.name}} *ngFor="let planet of planets;let i = index" [disabled]="planet.isSelected">
+                        {{planet.name}}
+                    </option>
+                </select>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Select Planet
+        <span class="total_time" *ngIf="totalTime">Total Time: {{totalTime}}</span>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-3" *ngIf="firstPlanetSelected">
+                <div class="p_name">
+                    {{firstPlanetSelected}}
+                    <span class="v_time" *ngIf="travelTime[0]">
+                        {{travelTime[0]}}        
+                    </span>
+                </div>
+                <div class="img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="form-grp" *ngFor="let vehicle of vehiclesCopy; let j = index">
+                    <input type="radio" name="vehicle1" [disabled]="(vehicle.max_distance < firstPlanet.distance) || vehicle.total_no < 1 ? true : null"
+                        value="{{vehicle.name}}" (change)="onVehicleSelect(vehicle,1)">
+                    <label for="vehicle1">{{vehicle.name}} ({{vehicle.total_no}})</label>
+                </div>
+            </div>
+            <div class="col-sm-3" *ngIf="secondPlanetSelected">
+                <div class="p_name">
+                    {{secondPlanetSelected}}
+                    <span class="v_time" *ngIf="travelTime[1]">
+                        {{travelTime[1]}}
+                    </span>
+                </div>
+                <div class="img-wrapper">
+                    <div></div>
+                    <img src="" alt="">
+                </div>
+                <div class="form-grp" *ngFor="let vehicle of vehiclesCopy; let j = index">
+                    <input type="radio" name="vehicle2" [disabled]="(vehicle.max_distance < secondPlanet.distance) || vehicle.total_no < 1 ? true : null"
+                        value="{{vehicle.name}}" (change)="onVehicleSelect(vehicle,2)">
+                    <label for="vehicle2">{{vehicle.name}} ({{vehicle.total_no}})</label>
+                </div>
+            </div>
+            <div class="col-sm-3" *ngIf="thirdPlanetSelected">
+                    <div class="p_name">
+                        {{thirdPlanetSelected}}
+                        <span class="v_time" *ngIf="travelTime[2]">
+                            {{travelTime[2]}}
+                        </span>
+                    </div>
+                <div class="img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="form-grp" *ngFor="let vehicle of vehiclesCopy; let j = index">
+                    <input type="radio" name="vehicle3" [disabled]="(vehicle.max_distance < thirdPlanet.distance) || vehicle.total_no < 1 ? true : null"
+                        value="{{vehicle.name}}" (change)="onVehicleSelect(vehicle,3)">
+                    <label for="vehicle3">{{vehicle.name}} ({{vehicle.total_no}})</label>
+                </div>
+            </div>
+            <div class="col-sm-3" *ngIf="fourthPlanetSelected">
+                    <div class="p_name">
+                        {{fourthPlanetSelected}}
+                        <span class="v_time" *ngIf="travelTime[3]">
+                            {{travelTime[3]}}
+                        </span>
+                    </div>
+                <div class="img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="form-grp" *ngFor="let vehicle of vehiclesCopy; let j = index">
+                    <input type="radio" name="vehicle4" [disabled]="(vehicle.max_distance < fourthPlanet.distance) || vehicle.total_no < 1 ? true : null"
+                        value="{{vehicle.name}}" (change)="onVehicleSelect(vehicle,4)">
+                    <label for="vehicle4">{{vehicle.name}} ({{vehicle.total_no}})</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row text-center">
+    <div class="time">
+        <span>{{totalTime}}</span>
+    </div>
+</div>
+<div class="row text-center">
+
+    <button class="btn btn-primary">Find Falcone</button>
+    <button class="btn" (click) = "openDialog()">Open Dialogue</button>
 </div>

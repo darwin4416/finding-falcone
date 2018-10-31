@@ -6,12 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
     styleUrls: ['./data-list.component.css']
 })
 export class DataListComponent implements OnInit {
+   
 
     @Input() planets;
     @Input() vehicles;
+
     constructor() { }
 
     ngOnInit() {
-     
+   
     }
 }

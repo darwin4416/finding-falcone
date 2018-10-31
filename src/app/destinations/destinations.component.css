@@ -35,13 +35,53 @@
 .form-grp{
     display:inline-block;
 } */
-.img-wrapper{
+/* .img-wrapper{
     width:60%;
     height:100px;
-    background: rgb(255, 254, 246);
-}
-.select-planet{
+    background: rgb(253, 247, 208);
+}*/
+ .select-planet{
     width:60%;
     padding:5px 15px;
     font-size:1.1em;
+} 
+
+.planet_image{
+    width:100%;
+    height: 100px;
+}
+ .img-wrapper{
+    width:60%;
+    height:100px;
+    background: rgb(253, 247, 208);
+}
+.time{
+    width:100px;
+    height:50px;
+    background-color: black;
+    color:white;
+    margin:0 auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.p_name{
+    width:60%;
+    background-color: rgb(231, 231, 231);;
+    color:black;
+    padding:5px;
+}
+.total_time{
+    float:right;
+    background-color:rgb(44, 90, 18);
+    border-radius: 10px;
+    padding:2px 10px;
+    color:white
+}
+.v_time{
+    float:right;
+    background-color:rgb(44, 90, 18);
+    border-radius: 5px;
+    padding:0px 6px;
+    color:white
 }
