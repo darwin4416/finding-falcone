@@ -1,0 +1,22 @@
+.close{
+    background-color: none;
+    border:none;
+    outline:none;
+    position: absolute;
+    right:10px;
+    top:10px;
+}
+.success_msg{
+    color:rgb(58, 57, 57);
+}
+.success_msg>span{
+    display:block;
+    font-weight: 600;
+    font-size: 14px;
+}
+.mat-dialog-actions{
+    padding:20px 45%;
+}
+.start_btn{
+  margin:0 auto;
+}

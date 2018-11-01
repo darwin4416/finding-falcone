@@ -1,3 +1,22 @@
-<p>
-  dialog works!
-</p>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close cdkFocusInitial class="close">x</button>
+  </div>
+
+<h1 mat-dialog-title></h1>
+<div mat-dialog-content>
+  <div class="success_msg" *ngIf = "data.isSearchSuccess;else failed">
+     <h3>Success! Congratulations on Finding Falcone. King shan is mighty pleased.</h3> 
+     <span>Time taken:</span>
+     <span>Planet found:</span>
+  </div>
+  <ng-template #failed>
+    <div>
+      <h3>Failed to find the falcone. Please try again.</h3>
+    </div>
+  </ng-template>
+  
+</div>
+<br/><br/>
+<div mat-dialog-actions>
+  <button class='btn btn-primary start_btn' mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Start Again</button>
+</div>

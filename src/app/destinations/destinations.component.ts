@@ -27,6 +27,7 @@ export class DestinationsComponent implements OnInit, OnChanges {
 
     showFirstVehicle: boolean = false;
     token;
+    isSearchSuccess:boolean = false;
     @Input() planets;
     @Input() vehicles;
     constructor(
@@ -225,14 +226,50 @@ export class DestinationsComponent implements OnInit, OnChanges {
     }
 
     openDialog(): void {
+        
         const dialogRef = this.dialog.open(DialogComponent, {
-          width: '250px',
-          //data: {name: this.name, animal: this.animal}
+          disableClose: true,
+          panelClass:'custom-dialog-container',
+          data: {isSearchSuccess: this.isSearchSuccess}
         });
     
         dialogRef.afterClosed().subscribe(result => {
           console.log('The dialog was closed');
          // this.animal = result;
         });
+        dialogRef.backdropClick().subscribe(() => {
+            // Close the dialog
+            dialogRef.close();
+          })
       }
+
+      findFalcone(){
+          const data = {
+              token:this.token,
+              planet_names:[
+                  this.firstPlanetSelected,
+                  this.secondPlanetSelected,
+                  this.thirdPlanetSelected,
+                  this.fourthPlanetSelected
+              ],
+              vehicle_names:[
+                  this.firstVehicleSelected.name,
+                  this.secondVehicleSelected.name,
+                  this.thirdVehicleSelected.name,
+                  this.fourthVehicleSelected.name
+              ]
+          }
+          this.getPlanetService.findFalcone(data).subscribe(res => {
+              console.log(res,"res");
+              if(res.status == "success"){
+                  this.isSearchSuccess = true;
+              }
+              else{
+                  this.isSearchSuccess = false;
+              }
+              this.openDialog();
+          })
+      }
+
+      
 }

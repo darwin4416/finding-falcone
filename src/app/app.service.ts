@@ -20,6 +20,7 @@ export class AppService {
   private planetsUrl = "https://findfalcone.herokuapp.com/planets";
   private vehiclesUrl = "https://findfalcone.herokuapp.com/vehicles";
   private tokenUrl = "https://findfalcone.herokuapp.com/token";
+  private findFalconeUrl = "https://findfalcone.herokuapp.com/find";
   getPlanets(){     
     let headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http.get(this.planetsUrl,{ headers: headers })
@@ -38,6 +39,14 @@ export class AppService {
     let headers = new Headers();
     headers.append("Accept","application/json");
     return this.http.post(this.tokenUrl,{},{ headers: headers })
+      .map(res => res.json())
+      .catch(this.errorHandler);
+  }
+
+  findFalcone(data){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append("Accept","application/json");
+    return this.http.post(this.findFalconeUrl,data,{ headers: headers })
       .map(res => res.json())
       .catch(this.errorHandler);
   }
